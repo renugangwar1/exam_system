@@ -1,7 +1,7 @@
 @extends('layouts.student')
 
 @section('content')
-<!-- 🌌 SVG Background -->
+
 <div class="dashboard-svg-bg">
     <svg xmlns="http://www.w3.org/2000/svg" 
          width="100%" height="100%" 
@@ -22,8 +22,8 @@
         </defs>
 
         <g fill="none" stroke-miterlimit="10">
-            <!-- Animated shapes remain unchanged -->
-            <!-- 🔷 Triangle -->
+          
+            
             <g stroke="url(#a)" stroke-width="21.12">
                 <path d="M1409 581 1450.35 511 1490 581z">
                     <animateTransform attributeName="transform" type="rotate" values="0 1450 546; 360 1450 546" dur="8s" repeatCount="indefinite"/>
@@ -39,7 +39,6 @@
                 </polygon>
             </g>
 
-            <!-- 🔶 Others -->
             <g stroke="url(#b)" stroke-width="6.4">
                 <path d="M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z">
                     <animateTransform attributeName="transform" type="rotate" values="0 150 390;360 150 390" dur="8s" repeatCount="indefinite"/>
@@ -75,7 +74,7 @@
 </div>
 
 
-<!-- Page Content -->
+
 <div class="container mt-4" style="position: relative; z-index: 1;">
     <div class="results-container">
         <h2 class="mb-4 text-center text-primary">
@@ -115,7 +114,7 @@
     </div>
 </div>
 
-<!-- Custom Styles -->
+
 <style>
   
 .dashboard-svg-bg {

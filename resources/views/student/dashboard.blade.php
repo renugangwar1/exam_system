@@ -11,7 +11,7 @@
     position: relative;
     min-height: 100vh;
     font-family: system-ui, sans-serif;
-    background: transparent; /* Ensure no other background */
+    background: transparent; 
 }
 .dashboard-svg-bg {
     position: fixed;
@@ -135,7 +135,7 @@
         font-size: 1rem;
     }
 
-    /* Responsive SVG Wave */
+   
 
 .dashboard-svg-bg {
     position: fixed;
@@ -176,8 +176,8 @@
         </defs>
 
         <g fill="none" stroke-miterlimit="10">
-            <!-- Animated shapes remain unchanged -->
-            <!-- 🔷 Triangle -->
+           
+      
             <g stroke="url(#a)" stroke-width="21.12">
                 <path d="M1409 581 1450.35 511 1490 581z">
                     <animateTransform attributeName="transform" type="rotate" values="0 1450 546; 360 1450 546" dur="8s" repeatCount="indefinite"/>
@@ -193,7 +193,7 @@
                 </polygon>
             </g>
 
-            <!-- 🔶 Others -->
+   
             <g stroke="url(#b)" stroke-width="6.4">
                 <path d="M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z">
                     <animateTransform attributeName="transform" type="rotate" values="0 150 390;360 150 390" dur="8s" repeatCount="indefinite"/>
@@ -232,7 +232,7 @@
 
 <div class="container mt-4 fade-in">
 
-    {{-- ✅ Welcome Message --}}
+   
     <div class="welcome-box d-flex align-items-center fade-in">
         <i class="bi bi-person-circle"></i>
         <div>
@@ -244,13 +244,12 @@
     <br>
   
 
-    {{-- 📚 Section Title --}}
    <div class="section-title" style="color: #FFD700;">
 
         <i class="bi bi-journal-text text-primary me-2"></i>Available Exams
     </div>
 
-    {{-- 📄 Exam Cards --}}
+   
     @forelse ($exams as $exam)
         @php $attempt = $attempts[$exam->id] ?? null; @endphp
 

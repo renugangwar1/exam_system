@@ -64,7 +64,7 @@
         </h5>
     </div>
 
-    <!-- Scrollable card body with fixed height -->
+   
     <div class="card-body bg-light p-3 scrollable-list">
         @if($papers->count())
             <div class="list-group list-group-flush">
@@ -79,12 +79,12 @@
                             </span>
                         </div>
 <div class="d-flex gap-3 mt-2">
-    <!-- View Icon -->
+  
     <a href="{{ route('admin.view_exam_questions', $paper->id) }}" class="icon-only text-secondary" title="View">
         <i class="fas fa-eye"></i>
     </a>
 
-    <!-- Toggle Icon -->
+  
     <form action="{{ route('admin.toggle_exam_status', $paper->id) }}" method="POST">
         @csrf
         <button type="submit" class="icon-only {{ $paper->status ? 'text-warning' : 'text-success' }}" title="Toggle Status">
@@ -92,7 +92,7 @@
         </button>
     </form>
 
-    <!-- Delete Icon -->
+   
     <form action="{{ route('admin.delete_exam', $paper->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this exam?');">
         @csrf
         @method('DELETE')

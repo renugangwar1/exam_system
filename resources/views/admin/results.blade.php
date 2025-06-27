@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-4">
-    <h2 class="mb-4 fw-bold text-center"><i class="fas fa-chart-line me-2 text-primary"></i>Exam Results</h2>
+    <<h2 class="mb-5 text-center fw-bold text-uppercase" style="color: gold;"><i class="fas fa-chart-line me-2 text-primary"></i>Exam Results</h2>
 
     @php
         $groupedResults = collect($results)->groupBy('exam_id');
@@ -79,9 +79,9 @@
     @endforelse
 </div>
 
-{{-- Animate.css --}}
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-{{-- Font Awesome --}}
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 @endsection

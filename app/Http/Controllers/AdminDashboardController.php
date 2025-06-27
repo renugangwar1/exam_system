@@ -43,9 +43,9 @@ public function uploadExam(Request $request)
         $rows = $data[0]; // First sheet
 
         foreach ($rows as $index => $row) {
-            if ($index === 0) continue; // skip header
+            if ($index === 0) continue; 
 
-            // Expected format: [Question, A, B, C, D, Correct, Marks]
+           
         Question::create([
     'exam_id' => $exam->id,
     'question' => $row[0],
@@ -95,7 +95,7 @@ public function viewResults()
 
    public function viewApplications()
 {
-    // Only show submitted applications (adjust condition as per your DB field)
+   
     $applications = Application::where('submitted', true)->get();
 
     return view('admin.applications', compact('applications'));
@@ -129,7 +129,7 @@ public function deleteExam($id)
 {
     $exam = Exam::findOrFail($id);
 
-    // Delete related questions first (if using foreign key constraint with cascade, this is optional)
+    
     $exam->questions()->delete();
 
     // Delete exam
@@ -163,7 +163,7 @@ public function publishResults()
                 $alreadyPublished = $submitted->first()->published ?? false;
                 $newState = !$alreadyPublished;
 
-                // Toggle publish state
+              
                 \DB::table($tableName)->where('submitted', true)->update(['published' => $newState]);
 
                 if ($newState) {

@@ -35,13 +35,13 @@
     </div>
 </div>
 
-{{-- Animate.css --}}
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-{{-- Font Awesome --}}
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-{{-- Optional Custom Styling --}}
+
 <style>
     body {
         background-color: #f8f9fa;

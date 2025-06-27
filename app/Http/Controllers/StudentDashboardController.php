@@ -21,7 +21,7 @@ class StudentDashboardController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
 
-    // Store attempts by exam_id (dynamically from each table)
+  
     $attempts = [];
 
     foreach ($exams as $exam) {

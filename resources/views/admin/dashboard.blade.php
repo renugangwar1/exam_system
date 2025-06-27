@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!-- ✅ Animated SVG Background -->
+
 <div class="svg-background">
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
         <rect fill="#000000" width="800" height="800"/>
@@ -17,7 +17,7 @@
     </svg>
 </div>
 
-<!-- ✅ Main Content -->
+
 <div class="container mt-5 position-relative" style="z-index: 2;">
 <h2 class="mb-5 text-center fw-bold text-uppercase" style="color: gold;">Welcome to Admin Dashboard</h2>
 
@@ -42,7 +42,6 @@
     </div>
 </div>
 
-<!-- ✅ Styles & Animation -->
 <style>
     body {
         background: none !important;
@@ -103,7 +102,7 @@
         color: white;
     }
 
-    /* ✅ SVG Circle Animation */
+   
     .pulse {
         transform-origin: 50% 50%;
         animation: pulse 6s ease-in-out infinite;

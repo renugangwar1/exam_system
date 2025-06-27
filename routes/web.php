@@ -32,9 +32,9 @@ Route::post('/login', [LoginController::class, 'login']);
 // Logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// 👇 Removed generic /dashboard route
 
-// Student Dashboard (Protected by auth & student middleware)
+
+// Student Dashboard 
 Route::middleware(['auth', 'student'])->prefix('student')->group(function () {
     Route::get('/dashboard', [StudentDashboardController::class, 'index'])->name('student.dashboard');
  Route::get('/exam/start/{id}', [ExamController::class, 'start'])->name('exam.start');
@@ -42,7 +42,7 @@ Route::middleware(['auth', 'student'])->prefix('student')->group(function () {
     Route::get('/results', [ExamController::class, 'results'])->name('student.results');
 });
 
-// Admin Dashboard (Protected by auth & admin middleware)
+// Admin Dashboard 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
    

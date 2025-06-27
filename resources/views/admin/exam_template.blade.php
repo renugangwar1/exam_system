@@ -18,13 +18,13 @@
             border-left: 5px solid #007bff;
         }
         thead {
-            display: none; /* ✅ Hide headers */
+            display: none; 
         }
     </style>
 </head>
 <body>
 
-    <!-- MCQ Section Only -->
+  
  
     <table>
         <thead>

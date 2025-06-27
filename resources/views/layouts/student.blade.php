@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Student Panel</title>
 
-    <!-- Bootstrap & Font Awesome -->
+   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Custom Styling -->
+  
     <style>
         body {
             background-color: #f8f9fa;
@@ -58,7 +58,7 @@
 
 @auth
     @if(Auth::user()->role === 'student')
-        {{-- ✅ Student Navbar --}}
+     
         <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
             <div class="container">
                 <a class="navbar-brand fw-bold text-primary" href="#">
@@ -96,15 +96,15 @@
             </div>
         </nav>
 
-        {{-- ✅ Student Main Content --}}
+     
         <main class="py-4 fade-in">
             @yield('content')
         </main>
 
-        {{-- ✅ Bootstrap JS --}}
+     
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     @else
-        {{-- ❌ Not a student --}}
+       
         <div class="container mt-5 fade-in">
             <div class="alert alert-danger text-center shadow-sm">
                 <i class="fas fa-ban me-2"></i> Access Denied. This section is for Students only.
@@ -112,7 +112,7 @@
         </div>
     @endif
 @else
-    {{-- 🔒 Not logged in --}}
+  
     <div class="container mt-5 fade-in">
         <div class="alert alert-warning text-center shadow-sm">
             <i class="fas fa-lock me-2"></i> Please <a href="{{ route('login') }}">login</a> to access the Student Panel.

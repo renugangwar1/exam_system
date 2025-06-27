@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-4">
-    <h1 class="mb-4 text-center">👩‍🎓 Students</h1>
+    <h1 class="mb-5 text-center fw-bold text-uppercase" style="color: gold;">👩‍🎓 Students</h1>
 
     @if($students->count())
     <div class="table-responsive">
@@ -14,7 +14,7 @@
                     <th>Roll No</th>
                     <th>Email</th>
                     <th>Registered At</th>
-                    <th>Action</th> <!-- New column -->
+                    <th>Action</th> 
                 </tr>
             </thead>
             <tbody>

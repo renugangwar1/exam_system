@@ -26,7 +26,7 @@ class RegisterController extends Controller
         // 🔁 Generate unique roll number
         $roll_no = $this->generateRollNo();
 
-        // ✅ Create user
+       
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -42,12 +42,11 @@ class RegisterController extends Controller
 
     protected function generateRollNo()
     {
-        $prefix = '25'; // Optional: Customize as needed
+        $prefix = '25'; 
         $lastUser = User::orderBy('id', 'desc')->first();
         $lastId = $lastUser ? $lastUser->id : 0;
         $nextId = $lastId + 1;
 
-        return $prefix . str_pad($nextId, 8, '0', STR_PAD_LEFT); // Example: RN00001
+        return $prefix . str_pad($nextId, 8, '0', STR_PAD_LEFT); 
     }
 }
-

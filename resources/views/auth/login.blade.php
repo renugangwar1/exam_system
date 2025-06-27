@@ -175,7 +175,7 @@
 </head>
 <body>
 
-<!-- SVG Background Doodles -->
+
 <div class="background-doodles">
     <!-- Circle -->
     <svg width="200" height="200"  style="top: 8%; left: 10%;" class="floating">
@@ -228,9 +228,9 @@
 </div>
 
 
-<!-- Login Form -->
+
 <div class="login-box">
-    <h2>🔐 Login</h2>
+    <h2> Login</h2>
 
     @if ($errors->any())
     <div class="error">
@@ -258,9 +258,15 @@
         </div>
 
         <button type="submit" class="btn">
-            🔓 Login Securely
+             Login Securely
         </button>
     </form>
+    <div style="margin-top: 20px; text-align: center;">
+    <span style="color: #555;">Don't have an account?</span>
+    <a href="{{ route('register') }}" style="color: #6e8efb; font-weight: bold; text-decoration: none;">
+        Register here
+    </a>
+</div>
 </div>
 
 </body>

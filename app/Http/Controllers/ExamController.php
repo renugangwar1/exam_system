@@ -21,10 +21,10 @@ class ExamController extends Controller
     $exam = Exam::with('questions')->findOrFail($id);
     $tableName = 'exam_attempt_' . $id;
 
-    // Create table if not exists
+
     $this->createExamAttemptTable($id);
 
-    // Check if already submitted in dynamic table
+   
     $attempt = DB::table($tableName)
                 ->where('user_id', $student->id)
                 ->first();
@@ -34,7 +34,7 @@ class ExamController extends Controller
             ->with('error', 'You have already attempted this exam.');
     }
 
-    // Create empty record if not exists
+   
     if (!$attempt) {
         DB::table($tableName)->insert([
             'user_id' => $student->id,
@@ -72,12 +72,11 @@ public function submit(Request $request)
     foreach ($exam->questions as $question) {
         $answered = $submittedAnswers[$question->id] ?? null;
 
-        // Calculate score for correct MCQ
+      
         if ($answered === $question->correct_answer) {
             $score += $question->marks;
         }
 
-        // Save the answer (even if it's null)
         DB::table('student_answers')->updateOrInsert(
             [
                 'user_id' => $user->id,
@@ -92,7 +91,7 @@ public function submit(Request $request)
         );
     }
 
-    // Insert or update the exam_attempt_X table
+   
     DB::table($tableName)->updateOrInsert(
         ['user_id' => $user->id],
         [
@@ -103,7 +102,7 @@ public function submit(Request $request)
         ]
     );
 
-    // Recalculate rank
+   
     $scores = DB::table($tableName)
         ->where('submitted', true)
         ->orderByDesc('score')
@@ -115,7 +114,7 @@ public function submit(Request $request)
         'rank' => $rank,
     ]);
 
-    // Optional: store in applications table
+   
     Application::updateOrInsert(
         ['user_id' => $user->id, 'exam_id' => $examId],
         [
@@ -189,10 +188,10 @@ public function publishResults(Request $request)
 
     $toggle = $submittedCount !== $publishedCount;
 
-    // Toggle publish status
+   
     DB::table($tableName)->where('submitted', true)->update(['published' => $toggle]);
 
-    // Reassign ranks if publishing
+   
     if ($toggle) {
         $attempts = DB::table($tableName)
             ->where('submitted', true)
@@ -233,7 +232,7 @@ public function results()
                 $exam = Exam::find($examId);
 
                 if ($exam) {
-                    // Calculate rank
+                
                     $scores = DB::table($tableName)
                         ->where('submitted', true)
                         ->where('published', true)
@@ -264,7 +263,6 @@ public function createExamAttemptTable($examId)
 {
     $tableName = 'exam_attempt_' . $examId;
 
-    // Check if table already exists
     if (!Schema::hasTable($tableName)) {
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();

@@ -169,7 +169,7 @@
 </head>
 <body>
 
-<!-- SVG Background Doodles -->
+=
 <div class="background-doodles">
     <svg width="200" height="200" style="top: 8%; left: 10%;" class="delay-1"><circle cx="70" cy="70" r="60" stroke="#fff" stroke-width="6" fill="none"/></svg>
     <svg width="200" height="200" style="top: 55%; left: 65%;" class="delay-2"><rect x="10" y="10" width="100" height="100" stroke="#fff" stroke-width="5" fill="none"/></svg>
@@ -181,9 +181,9 @@
 
 </div>
 
-<!-- Registration Form -->
+=
 <div class="register-box">
-    <h2> Student Registration</h2>
+    <h2> Register</h2>
 
     @if ($errors->any())
         <div class="error">
@@ -224,6 +224,13 @@
 
         <button type="submit" class="btn"> Register Now</button>
     </form>
+    <div style="margin-top: 20px; text-align: center;">
+    <span style="color: #555;">Already registered?</span>
+    <a href="{{ route('login') }}" style="color: #6e8efb; font-weight: bold; text-decoration: none;">
+        Login here
+    </a>
+</div>
+
 </div>
 
 </body>

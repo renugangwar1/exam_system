@@ -5,7 +5,7 @@
     <title>Admin Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap & Font Awesome -->
+   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
@@ -44,7 +44,7 @@
             z-index: 2;
         }
 
-      
+       
         .svg-background {
             position: fixed;
             top: 0;
@@ -77,11 +77,15 @@
                 opacity: 0.85;
             }
         }
+        .sidebar svg {
+    pointer-events: none;
+    z-index: 0;
+}
     </style>
 </head>
 <body>
 
-    <!-- ✅ Animated SVG Background -->
+  
     <div class="svg-background">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
             <rect fill="#000000" width="800" height="800"/>
@@ -96,59 +100,85 @@
         </svg>
     </div>
 
+   
     <!-- Sidebar -->
-   <div class="sidebar position-relative">
-    <!-- 🎨 Doodle Background -->
- <div class="sidebar-doodles position-absolute w-100 h-100 top-0 start-0 overflow-hidden">
-    <svg width="100%" height="100%" viewBox="0 0 300 800" preserveAspectRatio="none">
-        <g fill="none" stroke="#8ab4f8" stroke-width="1.2" opacity="0.5">
-            <!-- 🌀 Swirls -->
-           
-            <circle cx="200" cy="180" r="30"/>
-            <!-- ✨ Stars -->
-            <polygon points="50,20 60,40 80,45 65,60 70,80 50,70 30,80 35,60 20,45 40,40" />
-            <polygon points="180,300 185,310 195,312 188,320 190,330 180,325 170,330 172,320 165,312 175,310" />
-            <!-- 💠 Zig-Zag -->
-            <polyline points="20,500 40,520 60,500 80,520 100,500" />
-            <!-- 🔹 Diamond -->
-            <polygon points="100,700 120,720 100,740 80,720"/>
-        </g>
-    </svg>
+<div class="sidebar position-relative">
+
+ <!--  Top Left Circle & Wave -->
+
+<!--  Bottom Right Rounded Square -->
+<svg class="position-absolute bottom-0 end-0" width="80" height="80" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg" style="opacity: 0.35;">
+    <rect x="10" y="10" width="80" height="80" rx="20" stroke="#adb5bd" stroke-width="4"/>
+    <line x1="10" y1="90" x2="90" y2="10" stroke="#adb5bd" stroke-width="2"/>
+</svg>
+
+<!--  Top Right Zigzag -->
+<svg class="position-absolute top-0 end-0" width="60" height="60" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg" style="opacity: 0.3;">
+    <polyline points="10,90 30,10 50,90 70,10 90,90" stroke="#ced4da" stroke-width="3" fill="none"/>
+</svg>
+
+<!--  Bottom Left Spiral -->
+<svg class="position-absolute bottom-0 start-0" width="60" height="60" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg" style="opacity: 0.3;">
+    <path d="M50,50 m-30,0 a30,30 0 1,1 60,0 a30,30 0 1,1 -60,0" stroke="#dee2e6" stroke-width="2.5" fill="none"/>
+</svg>
+
+<!--  Center Left Line Pattern -->
+<svg class="position-absolute top-50 start-0 translate-middle-y" width="50" height="100" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg" style="opacity: 0.4;">
+    <line x1="20" y1="0" x2="20" y2="100" stroke="#adb5bd" stroke-width="2"/>
+    <line x1="40" y1="0" x2="40" y2="100" stroke="#adb5bd" stroke-width="2"/>
+    <line x1="60" y1="0" x2="60" y2="100" stroke="#adb5bd" stroke-width="2"/>
+</svg>
+
+<!--  Center Right Dotted Grid -->
+<svg class="position-absolute top-50 end-0 translate-middle-y" width="50" height="100" viewBox="0 0 100 100" fill="none"
+     xmlns="http://www.w3.org/2000/svg" style="opacity: 0.4;">
+    <circle cx="20" cy="20" r="4" fill="#adb5bd"/>
+    <circle cx="20" cy="50" r="4" fill="#adb5bd"/>
+    <circle cx="20" cy="80" r="4" fill="#adb5bd"/>
+    <circle cx="50" cy="20" r="4" fill="#adb5bd"/>
+    <circle cx="50" cy="50" r="4" fill="#adb5bd"/>
+    <circle cx="50" cy="80" r="4" fill="#adb5bd"/>
+</svg>
+
+
+
+    <h4 class="text-center py-3">Admin Panel</h4>
+    <a href="{{ route('admin.dashboard') }}" class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
+        <i class="fas fa-home me-2"></i> Dashboard
+    </a>
+    <a href="{{ route('admin.create_exam') }}" class="{{ request()->is('admin/create-exam') ? 'active' : '' }}">
+        <i class="fas fa-file-alt me-2"></i> Create Exam
+    </a>
+    <a href="{{ route('admin.results') }}" class="{{ request()->is('admin/results') ? 'active' : '' }}">
+        <i class="fas fa-chart-line me-2"></i> View Results
+    </a>
+    <a href="{{ route('admin.applications') }}" class="{{ request()->is('admin/applications') ? 'active' : '' }}">
+        <i class="fas fa-file-upload me-2"></i> Applications
+    </a>
+    <a href="{{ route('admin.students') }}" class="{{ request()->is('admin/students') ? 'active' : '' }}">
+        <i class="fas fa-users-cog me-2"></i> Manage Students
+    </a>
+    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        <i class="fas fa-sign-out-alt me-2"></i> Logout
+    </a>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </div>
 
 
-        
-        <h4 class="text-center py-3">Admin Panel</h4>
-        <a href="{{ route('admin.dashboard') }}" class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
-            <i class="fas fa-home me-2"></i> Dashboard
-        </a>
-        <a href="{{ route('admin.create_exam') }}" class="{{ request()->is('admin/create-exam') ? 'active' : '' }}">
-            <i class="fas fa-file-alt me-2"></i> Create Exam
-        </a>
-        <a href="{{ route('admin.results') }}" class="{{ request()->is('admin/results') ? 'active' : '' }}">
-            <i class="fas fa-chart-line me-2"></i> View Results
-        </a>
-        <a href="{{ route('admin.applications') }}" class="{{ request()->is('admin/applications') ? 'active' : '' }}">
-            <i class="fas fa-file-upload me-2"></i> Applications
-        </a>
-        <a href="{{ route('admin.students') }}" class="{{ request()->is('admin/students') ? 'active' : '' }}">
-            <i class="fas fa-users-cog me-2"></i> Manage Students
-        </a>
-        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            <i class="fas fa-sign-out-alt me-2"></i> Logout
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-    </div>
-
-    <!-- Main Content -->
+ 
     <div class="content">
         @yield('content')
     </div>
 
-    <!-- Bootstrap JS -->
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
